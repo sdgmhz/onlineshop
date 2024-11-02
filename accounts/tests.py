@@ -15,7 +15,7 @@ class TestLoginSignUp(TestCase):
         response = self.client.get(reverse("login"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Login")
-        self.assertTemplateUsed(response, "registration/login.html")
+        self.assertTemplateUsed(response, "account/login.html")
 
     def test_signup_page_url(self):
         response = self.client.get("/accounts/signup/")
@@ -25,7 +25,7 @@ class TestLoginSignUp(TestCase):
         response = self.client.get(reverse("signup"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Signup")
-        self.assertTemplateUsed(response, "registration/signup.html")
+        self.assertTemplateUsed(response, "account/signup.html")
 
     def test_signup_form(self):
         user = get_user_model().objects.create_user(
